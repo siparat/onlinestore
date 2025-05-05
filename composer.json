@@ -1,0 +1,41 @@
+{
+    "name": "vendor/onlinestore",
+    "description": "A package for online store CRUD operations with external services integration",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Vendor\\OnlineStore\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vendor\\OnlineStore\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "^8.0|^9.0|^10.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "fakerphp/faker": "^1.9",
+        "symfony/http-foundation": "^5.0|^6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "php artisan vendor:publish --provider=\"Vendor\\OnlineStore\\Providers\\OnlineStoreServiceProvider\" --tag=config",
+            "php artisan vendor:publish --provider=\"Vendor\\OnlineStore\\Providers\\OnlineStoreServiceProvider\" --tag=views"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/vendor/onlinestore.git"
+        }
+    ]
+}
